@@ -4,30 +4,23 @@
 
     {% block head %}
 
-    <title>Gym Manager</title>
+    <title>ACME Store</title>
 
     {% endblock %}
 
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
 
 </head>
 <body>
 
-    <header>
-            <div class="title">
-                <h1>ACME GYM Manager</h1>
-        </div>
-
-        <div class="links">
-            <a href="/instructors">Instructors</a>
-            <a href="/members">Members</a>
-        </div>
-    </header>
+    {% include "parts/header.njk" %}
 
     {% block content %} {% endblock %}
 
-    <script src="/scripts.js"></script>
+    {% include "parts/footer.njk" %}
 
+    
 </body>
 </html>

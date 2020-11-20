@@ -1,7 +1,7 @@
 {
   "name": "1_web_development_bootcamp_launchbase_store",
   "version": "1.0.0",
-  "description": "LaunchBase 2.0 Bootcamp Gym",
+  "description": "LaunchBase 2.0 Bootcamp Store",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/server.js"

@@ -4,7 +4,7 @@ const routes = express.Router();
 
 
 routes.get("/", function(req, res) {
-    return res.send("Ok")
+    return res.render("layout.njk")
 })
 
 
