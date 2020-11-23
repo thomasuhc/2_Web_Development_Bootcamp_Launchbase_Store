@@ -11,11 +11,14 @@ routes.get("/", function(req, res) {
 
 
 routes.get("/products/create", ProductController.create)
+routes.get("/products/:id/edit", ProductController.edit)
+
 routes.post("/products", ProductController.post)
+routes.put("/products", ProductController.put)
 
 
 routes.get("/ads/create", function(req, res) {
-    return res.render("/products/create")
+    return res.redirect("/products/create")
 })
 
 

@@ -22,5 +22,13 @@ module.exports = {
         console.log(year);
         console.log(month);
         console.log(day)
+    },
+    formatPrice(price) {
+
+        return new Intl.NumberFormat("en-CA", {
+            style: 'currency',
+            currency: 'CAD'
+
+        }).format(price/100)
     }
 }
