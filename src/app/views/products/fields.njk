@@ -1,102 +1,74 @@
-    <div class="item">
-        <div>Category</div>
-             <div>
-            <select name="category_id" id="">
+<div class="item">
+    <div>Category</div>
+    <div>
+        <select name="category_id" id="">
 
-             {% for category in categories %}
-                <option value="{{ category.id}}"
-                 {% if product.category.id == category.id %} selected {% endif %}>
-                 {{ category.name }}
-                 </option>
-             {% endfor %}
+            {% for category in categories %}
+                <option value="{{ category.id}}" {% if product.category.id == category.id %} selected="selected" {% endif %}>
+                    {{ category.name }}
+                </option>
+            {% endfor %}
 
-         </select>
-          </div>
-   </div>
-   
-   <div class="item">
-         <div>Name</div>
-                <div>
-                    <input type="text" name="name" placeholder="Ad name"
-                    value="{{ product.name }}">
-                </div>
-            </div>
+        </select>
+    </div>
+</div>
 
+<div class="item">
+    <div>Title</div>
+    <div>
+        <input type="text" name="name" value="{{ product.name }}">
+    </div>
+</div>
 
-   <div class="item">
-         <div>Description</div>
-                <div>
-                    <textarea name="description">
-                        {{ product.description}}
-                    </textarea>
-                </div>
-            </div>
+<div class="item">
+    <div>Description</div>
+    <div>
+        <textarea name="description">{{product.description}}</textarea>
+    </div>
+</div>
 
-
-
-
-
-
-               
-   <div class="item">
+<div class="item">
     <div>Price</div>
-           <div>
-               <input type="text" name="price" placeholder="Price of product"
-               value="{{ product.price }}">
-           </div>
+    <div>
+        <input 
+        type="text" 
+        name="price" 
+        value="{{ product.price }}"
+        onkeydown="Mask.apply(this, 'formatCAD')"
+        >
+    </div>
 
-            {% if product.old_price %}
+    {% if product.old_price %}
 
-            <input type="hidden" name="old_price" value="{{ product.old_price }}">
+        <input type="hidden" name="old_price" value="{{ product.old_price }}">
 
-            {% endif %}
+    {% endif %}
 
-       </div>
+</div>
 
+<div class="item">
+    <div>Quantity</div>
+    <div>
+        <input type="number" name="quantity" value="{{ product.quantity }}">
+    </div>
+</div>
 
-   <div class="item">
-         <div>Quantity</div>
-                <div>
-                    <input type="number" name="quantity" 
-                    placeholder="Pieces available"
-                    value="{{ product.quantity }}">
-                </div>
-            </div>
-
-        {% if product.status %}
-            <div class="item">
-                <div>Available</div>
-                <div>
-                    <span>
-                        <input 
-                        type="radio" 
-                        name="status" 
-                        value="1"
-                        {% if product.status == "1" %}
-                            checked
-                        {% endif %}>
-                        Yes
-                    </span>
-                    <span>
-                        <input 
-                        type="radio" 
-                        name="status" 
-                        value="0"
-                          {% if product.status == "0" %}
-                            checked
-                        {% endif %}>
-                        No
-                    </span>
-                    <span>
-                        <input 
-                        type="radio" 
-                        name="status" 
-                        value="2"
-                          {% if product.status == "2" %}
-                            checked
-                        {% endif %}>
-                       Sold-out
-                    </span>
-                </div>
-            </div>
-            {% endif %}
+{% if product.status %}
+    <div class="item">
+        <div>Available</div>
+        <div>
+            <span>
+                <input type="radio" name="status" value="1" {% if product.status == "1" %} checked="checked" {% endif %}>
+                Yes
+            </span>
+            <span>
+                <input type="radio" name="status" value="0" {% if product.status == "0" %} checked="checked" {% endif %}>
+                No
+            </span>
+            <span>
+                <input type="radio" name="status" value="2" {% if product.status == "2" %} checked="checked" {% endif %}>
+                Sold-out
+            </span>
+        </div>
+    </div>
+{% endif %}

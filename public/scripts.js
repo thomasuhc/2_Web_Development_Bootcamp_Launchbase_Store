@@ -1,4 +1,45 @@
-const currentPage = location.pathname
+const Mask = {
+    apply(input, func) {
+
+        setTimeout(function() {
+
+           input.value = Mask[func](input.value)
+
+        }, 1)
+    },
+    formatCAD(value) { 
+
+        value = value.replace(/\D/g, "")
+
+        return new Intl.NumberFormat("en-CA", {
+            style: 'currency',
+            currency: 'CAD'
+
+        }).format(value/100)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const currentPage = location.pathname
 const menuItems = document.querySelectorAll("header .links a")
 
 for (item of menuItems) {
@@ -73,4 +114,4 @@ const pagination = document.querySelector(".pagination")
 
 if(pagination) {
     createPagination(pagination)
-}
+} */
