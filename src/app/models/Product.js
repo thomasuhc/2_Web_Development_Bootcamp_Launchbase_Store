@@ -62,6 +62,11 @@ module.exports = {
         ]
 
         return db.query(query, values)
+    },
+    files(id) {
+        return db.query(`
+            SELECT * FROM files WHERE product_id = $1
+        `, [id])
     }
 
 }
